@@ -15,6 +15,10 @@ export const ModalContainer = styled.div`
   border-radius: 8px;
   padding: 24px;
   max-width: 500px;
-  width: 90%;
+  width: 60%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  @media (orientation: portrait ) {
+    width: 90%;
+  }
 `;
