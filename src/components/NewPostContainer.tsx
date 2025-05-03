@@ -1,11 +1,11 @@
-import { Box } from "src/components/styleds/Box";
-import { useTheme } from "styled-components";
-import Typography from "src/components/Typograph";
-import { TextInput } from "src/components/inputs/TextInput";
-import { Button } from "src/components/styleds/Button";
-import { TextAreaInput } from "src/components/inputs/TextAreaInput";
-import { ChangeEventHandler } from "react";
-import { PostCreateNewPost } from "src/utils/requestTypes";
+import { Box } from 'src/components/styleds/Box';
+import { useTheme } from 'styled-components';
+import Typography from 'src/components/Typograph';
+import { TextInput } from 'src/components/inputs/TextInput';
+import { Button } from 'src/components/styleds/Button';
+import { TextAreaInput } from 'src/components/inputs/TextAreaInput';
+import { ChangeEventHandler } from 'react';
+import { PostCreateNewPost } from 'src/utils/requestTypes';
 
 type props = {
     handleUpdateNewPostTitle: ChangeEventHandler<HTMLInputElement>
@@ -57,7 +57,7 @@ const NewPostContainer = ({
                 alignItems: 'center',
             }}>
                 <Button
-                type="button"
+                type='button'
                 disabled={createPostDisabled}
                 onClick={handleSubmitPost}
                 >Create</Button>

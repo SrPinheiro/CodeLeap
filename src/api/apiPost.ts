@@ -1,6 +1,6 @@
-import { getAxios } from "src/configs/axios"
-import { ArrayResponseType, PathEditPost, PostCreateNewPost } from "src/utils/requestTypes"
-import { PostType } from "src/utils/types"
+import { getAxios } from 'src/configs/axios'
+import { ArrayResponseType, PathEditPost, PostCreateNewPost } from 'src/utils/requestTypes'
+import { PostType } from 'src/utils/types'
 
 const postCreateNewPost = async(data: PostCreateNewPost)  => {
     const reponse = await getAxios().post<PostType>('', data)

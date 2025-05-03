@@ -7,9 +7,10 @@ type props = {
     selectedPost?: PostType
     onClose: VoidFunction
     loadPosts: VoidFunction
+    open: boolean
 }
 
-const useEditPostModal = ({ selectedPost, onClose, loadPosts }: props) => {
+const useEditPostModal = ({ selectedPost, onClose, loadPosts, open }: props) => {
     const [editPost, setEditPost] = useState({title: '', content: '' })
 
     useLayoutEffect(() => {
@@ -17,7 +18,8 @@ const useEditPostModal = ({ selectedPost, onClose, loadPosts }: props) => {
                 title: selectedPost?.title ?? '',
                 content: selectedPost?.content ?? ''
             })
-        }, [selectedPost])
+        
+        }, [selectedPost, open]) // eslint-disable-line
 
     const handleChangeTitle: ChangeEventHandler<HTMLInputElement> = (e) => {
         setEditPost(prev => ({...prev, title: e.target.value}))
@@ -27,7 +29,7 @@ const useEditPostModal = ({ selectedPost, onClose, loadPosts }: props) => {
         setEditPost(prev => ({...prev, content: e.target.value}))
     }
 
-    const handleEditPost = () => {
+    const handleSubmitForm = () => {
         onClose()
         toast.promise(
             patchUpdatePost(selectedPost!.id, editPost),
@@ -41,7 +43,7 @@ const useEditPostModal = ({ selectedPost, onClose, loadPosts }: props) => {
 
     return {
         editPost,
-        handleEditPost,
+        handleSubmitForm,
         handleChangeTitle,
         handleChangeContent
     }

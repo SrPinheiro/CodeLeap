@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from "react";
+import { ChangeEventHandler, FormEvent } from "react";
 import { Box } from "src/components/styleds/Box";
 import { Button } from "src/components/styleds/Button";
 import { CenterAlignContainer } from "src/components/styleds/CenterAlignContainer";
@@ -10,26 +10,39 @@ import { useTheme } from "styled-components";
 type props = {
     username: string,
     updateUsername: ChangeEventHandler<HTMLInputElement>,
-    hangleLogin: () => void
+    handleSubmitForm: (e: FormEvent) => void
 }
-const LoginPageView = ({ username, updateUsername, hangleLogin }: props) => {
+const LoginPageView = ({ username, updateUsername, handleSubmitForm }: props) => {
     const theme = useTheme()
 
     return (
         <CenterAlignContainer>
-            <FlexContainer style={{ borderRadius: '10px'}}>
-                <Typography variant="h1">Welcome to CodeLeap network!</Typography>
-                <Typography variant='p' style={{ marginTop: theme.spacing.lg }}>Please enter your username</Typography>
-                <TextInput type="text" placeholder="Jhon doe" value={username} onChange={updateUsername}/>
-                <Box
-                style={{
-                    marginTop: theme.spacing.md,
-                    display: 'flex',
-                    justifyContent: 'right',
-                    alignItems: 'center',
-                }}>
-                    <Button type="button" disabled={!username} onClick={hangleLogin}>ENTER</Button>
-                </Box>
+            <FlexContainer style={{ borderRadius: '10px' }}>
+                <form onSubmit={handleSubmitForm} style={{ width: '100%' }}>
+                    <Typography variant="h1">Welcome to CodeLeap network!</Typography>
+                    <Typography variant="p" style={{ marginTop: theme.spacing.lg }}>
+                        Please enter your username
+                    </Typography>
+                    <TextInput
+                        type="text"
+                        placeholder="John Doe"
+                        value={username}
+                        onChange={updateUsername}
+                        style={{ width: '100%', marginTop: theme.spacing.sm }}
+                    />
+                    <Box
+                        style={{
+                        marginTop: theme.spacing.md,
+                        display: 'flex',
+                        justifyContent: 'right',
+                        alignItems: 'center',
+                        }}
+                    >
+                        <Button type="submit" disabled={!username}>
+                        ENTER
+                        </Button>
+                    </Box>
+                </form>
             </FlexContainer>
         </CenterAlignContainer>
     )

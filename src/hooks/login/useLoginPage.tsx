@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, FormEvent, useState } from "react"
 import { useAuth } from "src/hooks/useAuth"
 import { useNavigate } from "react-router-dom"
 
@@ -10,7 +10,9 @@ const useLoginPage = () => {
         setUsername(value)
     }
 
-    const hangleLogin = () => {
+    const handleSubmitForm = (e: FormEvent) => {
+        e.preventDefault()
+        
         logIn(username)
         navigate('/')
     }
@@ -18,7 +20,7 @@ const useLoginPage = () => {
     return {
         username,
         updateUsername,
-        hangleLogin
+        handleSubmitForm
     }
 }
 

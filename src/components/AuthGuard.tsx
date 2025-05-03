@@ -1,6 +1,6 @@
-import { JSX } from "react"
-import { Navigate } from "react-router-dom"
-import { useAuth } from "src/hooks/useAuth"
+import { JSX } from 'react'
+import { Navigate } from 'react-router-dom'
+import { useAuth } from 'src/hooks/useAuth'
 
 type props = {
     children: JSX.Element
