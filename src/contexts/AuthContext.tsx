@@ -37,4 +37,4 @@ const AuthProvider = ({ children }: props) => {
     return <AuthContext.Provider value={providerValues}>{children}</AuthContext.Provider>
 }
 
-export { AuthContext, AuthProvider}
+export { AuthContext, AuthProvider }

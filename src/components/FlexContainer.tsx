@@ -8,6 +8,6 @@ export const FlexContainer = styled.div`
     width: 50%;
 
     @media (orientation: portrait ) {
-        width: 90%;
+        width: 100%;
     }
 `

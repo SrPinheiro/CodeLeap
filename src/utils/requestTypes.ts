@@ -17,3 +17,8 @@ export type PostCreateNewPost = {
     title: string
     content: string
 }
+
+export type PathEditPost = {
+    title: string
+    content: string
+}

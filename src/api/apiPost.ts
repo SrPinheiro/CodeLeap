@@ -1,5 +1,5 @@
 import { getAxios } from "src/configs/axios"
-import { ArrayResponseType, PostCreateNewPost } from "src/utils/requestTypes"
+import { ArrayResponseType, PathEditPost, PostCreateNewPost } from "src/utils/requestTypes"
 import { PostType } from "src/utils/types"
 
 const postCreateNewPost = async(data: PostCreateNewPost)  => {
@@ -14,7 +14,21 @@ const getColletAllPosts = async()  => {
     return reponse.data
 }
 
+const patchUpdatePost = async(postID: number, data: PathEditPost)  => {
+    const reponse = await getAxios().patch<PostType>(`/${postID}/`, data)
+
+    return reponse.data
+}
+
+const deleteRemovePost = async(postID: number) => {
+    const reponse = await getAxios().delete<void>(`/${postID}/`)
+
+    return reponse.data
+}
+
 export {
     postCreateNewPost,
-    getColletAllPosts
+    getColletAllPosts,
+    patchUpdatePost,
+    deleteRemovePost
 }

@@ -1,9 +1,9 @@
-import { ChangeEvent, useCallback, useEffect, useMemo, useState } from "react";
-import { toast } from "react-toastify";
-import { getColletAllPosts, postCreateNewPost } from "src/api/apiPost";
-import { PostCreateNewPost } from "src/utils/requestTypes";
-import { PostType } from "src/utils/types";
-import { useAuth } from "../useAuth";
+import { ChangeEvent, useCallback, useEffect, useMemo, useState } from 'react';
+import { toast } from 'react-toastify';
+import { deleteRemovePost, getColletAllPosts, postCreateNewPost } from 'src/api/apiPost';
+import { PostCreateNewPost } from 'src/utils/requestTypes';
+import { PostType } from 'src/utils/types';
+import { useAuth } from 'src/hooks/useAuth';
 
 const defaultNewPost: PostCreateNewPost = {
     username: '',
@@ -16,19 +16,22 @@ const useHomePage = () => {
     const [newPost, setNewPost] = useState<PostCreateNewPost>(defaultNewPost)
     const [posts, setPosts] = useState<PostType[]>([])
     const createPostDisabled = useMemo(() => !(newPost.title && newPost.content), [newPost])
-    
-    useEffect(() => {
-      const handleGetPosts = async() => {
-        try{
-          const { results } = await getColletAllPosts()
-          setPosts(results)
-        }catch(err){
-          toast('Failed to get posts!')
-        }
-      }
+    const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false)
+    const [openEditModal, setOpenEditModal] = useState<boolean>(false)
+    const [selectedPost, setSelectedPost] = useState<PostType>({} as PostType)
 
-      handleGetPosts()
+    const loadPosts = useCallback(async() => {
+      try{
+        const { results } = await getColletAllPosts()
+        setPosts(results)
+      }catch(err){
+        toast('Failed to get posts!')
+      }
     }, [])
+
+    useEffect(() => {
+      loadPosts()
+    }, [loadPosts])
 
     const handleUpdateNewPostTitle = ({target: { value }}: ChangeEvent<HTMLInputElement>) => {
         setNewPost(prev => ({...prev, title: value}))
@@ -53,13 +56,53 @@ const useHomePage = () => {
       })
     }
 
+    const handleDeleteModalOpen = (post: PostType) => {
+      setSelectedPost(post);
+      setOpenDeleteModal(true)
+    }
+
+    const handleCancelDeleteModal = () => {
+      setOpenDeleteModal(false)
+    }
+    
+    const handleDeletePost = () => {
+      toast.promise(
+        deleteRemovePost(selectedPost!.id),
+        {
+          pending: 'Removing post...',
+          success:  'Post removed!',
+          error: 'Oh no! An error occurred while removing post!'
+        }
+      ).then(loadPosts)
+
+      handleCancelDeleteModal()
+    }
+
+    const handleCloseEditModal = () => {
+      setOpenEditModal(false)
+    }
+
+    const handleOpenEditModal = (post: PostType) => {
+      setSelectedPost(post);
+      setOpenEditModal(true)
+    }
+
     return {
         newPost,
         handleUpdateNewPostTitle,
         handleUpdateNewPostContent,
         handleSubmitPost,
         createPostDisabled,
-        posts
+        posts,
+        openDeleteModal,
+        handleDeleteModalOpen,
+        handleCancelDeleteModal,
+        handleDeletePost,
+        openEditModal,
+        handleCloseEditModal,
+        handleOpenEditModal,
+        selectedPost,
+        loadPosts
     }
 }
 
