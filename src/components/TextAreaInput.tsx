@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TextInput = styled.input.attrs({ type: 'text'})`
+export const TextAreaInput = styled.textarea`
     padding: ${({ theme }) => theme.spacing.sm };
     border-radius: ${({ theme }) => theme.spacing.sm };
     border: 1px solid ${({ theme }) => theme.colors.gray };

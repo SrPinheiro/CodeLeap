@@ -1,9 +1,8 @@
+import HomePageView from "src/view/homePage/HomePageView";
+
 const Home = () => {
-    return (
-        <div>
-            <h1>Home Page</h1>
-        </div>
-    );
+    
+    return <HomePageView />;
 }
 
 export default Home;
