@@ -26,6 +26,7 @@ const AuthProvider = ({ children }: props) => {
 
     const logOut = (): void => {
         updateUser('')
+        setUsername('')
     }
 
     const providerValues: AuthType = {

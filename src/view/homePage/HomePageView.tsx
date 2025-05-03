@@ -8,6 +8,8 @@ import ShowPostContainer from 'src/components/ShowPostContainer';
 import Typography from 'src/components/Typograph';
 import { useTheme } from 'styled-components';
 import { useHomePage } from 'src/hooks/pages/home/useHomePage';
+import { MdOutlineLogout } from "react-icons/md";
+import IconButton from 'src/components/IconButton';
 
 const HomePageView = () => {
         const theme = useTheme()
@@ -26,14 +28,18 @@ const HomePageView = () => {
             handleCloseEditModal,
             handleOpenEditModal,
             selectedPost,
-            loadPosts
+            loadPosts,
+            handleLogOutClick
           } = useHomePage()
     
         return (
             <CenterAlignContainer>
                 <FlexContainer style={{ minHeight: '100%', padding: 0}}>
-                    <HeaderContainer>
+                    <HeaderContainer style={{ display: 'flex', justifyContent: 'space-between'}}>
                         <Typography variant='h1'>Home Page</Typography>
+                        <IconButton onClick={handleLogOutClick}>
+                            <MdOutlineLogout size={20} />
+                        </IconButton>
                     </HeaderContainer>
                     <FlexContainer style={{ alignItems: 'center', width: '100%'}}>
                         <NewPostContainer

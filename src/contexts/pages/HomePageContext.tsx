@@ -19,6 +19,7 @@ export type HomePageContextType = {
     handleCloseEditModal: VoidFunction
     selectedPost: PostType
     loadPosts: VoidFunction
+    handleLogOutClick: VoidFunction
 }
 
 export const HomePageContext = createContext<HomePageContextType>({} as HomePageContextType)

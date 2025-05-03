@@ -87,6 +87,10 @@ const useHomePageLogic = () => {
       setOpenEditModal(true)
     }
 
+    const handleLogOutClick = () => {
+      auth.logOut()
+    }
+
     return {
         newPost,
         handleUpdateNewPostTitle,
@@ -102,7 +106,8 @@ const useHomePageLogic = () => {
         handleCloseEditModal,
         handleOpenEditModal,
         selectedPost,
-        loadPosts
+        loadPosts,
+        handleLogOutClick
     }
 }
 
