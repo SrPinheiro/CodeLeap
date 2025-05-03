@@ -6,4 +6,9 @@ export const FlexContainer = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 1em;
+    width: 50%;
+
+    @media (orientation: portrait ) {
+        width: 90%;
+    }
 `

@@ -1,12 +1,19 @@
+import { Button } from "src/components/Button";
 import { CenterAlignContainer } from "src/components/CenterAlignContainer";
 import { FlexContainer } from "src/components/FlexContainer";
+import { TextInput } from "src/components/TextInput";
 
 const LoginPageView = () => {
 
     return (
         <CenterAlignContainer>
-            <FlexContainer>
-                <h1>Login Page</h1>
+            <FlexContainer style={{ borderRadius: '10px'}}>
+                <h2>Welcome to CodeLeap network!</h2>
+                <p style={{ marginTop: '24px'}}>Please enter your username</p>
+                <TextInput type="text" style={{ marginTop: '8px'}} placeholder="Jhon doe"/>
+                <div className="df-right">
+                    <Button style={{marginTop: '16px'}} type="button" >ENTER</Button>
+                </div>
             </FlexContainer>
         </CenterAlignContainer>
     )

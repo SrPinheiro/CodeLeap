@@ -3,20 +3,24 @@ export const lightTheme = {
       background: '#DDD',
       text: '#121212',
       primary: '#7695EC',
+      secondary: '#4D8BF7',
       danger: '#ef4444',
-      white: '#fff'
+      white: '#fff',
+      gray: '#777777',
+      success: '#28A745'
     },
     spacing: {
       sm: '8px',
       md: '16px',
+      mdx: '24px',
       lg: '32px',
     },
     font: {
-      family: "'Inter', sans-serif",
+      family: "'Roboto', sans-serif",
       size: {
         sm: '14px',
         md: '16px',
-        lg: '20px',
+        lg: '24px',
       },
     },
   };
