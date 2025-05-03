@@ -4,8 +4,24 @@ import Typography from "src/components/Typograph";
 import { TextInput } from "src/components/TextInput";
 import { Button } from "src/components/Button";
 import { TextAreaInput } from "src/components/TextAreaInput";
+import { ChangeEventHandler } from "react";
+import { PostCreateNewPost } from "src/utils/requestTypes";
 
-const NewPostContainer = () => {
+type props = {
+    handleUpdateNewPostTitle: ChangeEventHandler<HTMLInputElement>
+    handleUpdateNewPostContent: ChangeEventHandler<HTMLTextAreaElement>
+    handleSubmitPost: () => void
+    createPostDisabled: boolean
+    newPost: PostCreateNewPost
+}
+
+const NewPostContainer = ({
+    handleUpdateNewPostTitle,
+    handleUpdateNewPostContent,
+    handleSubmitPost,
+    createPostDisabled,
+    newPost
+    }: props) => {
     const theme = useTheme()
 
     return (
@@ -19,9 +35,20 @@ const NewPostContainer = () => {
         >
             <Typography variant='h1'>What’s on your mind?</Typography>
             <Typography variant='p' style={{marginTop: theme.spacing.md}} >title</Typography>
-            <TextInput placeholder='Hello Word' style={{ width: '100%'}} />
+            <TextInput
+            placeholder='Hello Word'
+            style={{ width: '100%'}}
+            onChange={handleUpdateNewPostTitle}
+            value={newPost.title}
+            />
             <Typography variant='p' style={{marginTop: theme.spacing.md}}>Content</Typography>
-            <TextAreaInput placeholder='Content Here' style={{ maxWidth: '100%', minWidth: '100%'}} rows={4}  />
+            <TextAreaInput
+            placeholder='Content Here'
+            style={{ maxWidth: '100%', minWidth: '100%'}}
+            rows={4} 
+            onChange={handleUpdateNewPostContent}
+            value={newPost.content}
+            />
             <Box
             style={{
                 marginTop: theme.spacing.lg,
@@ -29,7 +56,11 @@ const NewPostContainer = () => {
                 justifyContent: 'right',
                 alignItems: 'center',
             }}>
-                <Button type="button" >Create</Button>
+                <Button
+                type="button"
+                disabled={createPostDisabled}
+                onClick={handleSubmitPost}
+                >Create</Button>
             </Box>
         </Box>
     )

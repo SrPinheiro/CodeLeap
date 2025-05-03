@@ -1,8 +1,8 @@
 import Home from "src/pages/home";
 import Login from "src/pages/login";
-import { pageType } from "src/utils/types";
+import { PageType } from "src/utils/types";
 
-export const pages: pageType[] = [
+export const pages: PageType[] = [
     {
         title: 'login',
         path: '/login',

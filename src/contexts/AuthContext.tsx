@@ -1,8 +1,8 @@
 import { createContext, ReactNode, useState } from "react";
 import { getCurrentUser, updateUser } from "src/utils/authHelpers";
-import { authType } from "src/utils/types";
+import { AuthType } from "src/utils/types";
 
-const defaultValues: authType = {
+const defaultValues: AuthType = {
     username: getCurrentUser(),
     logIn: () => {},
     logOut: () => {}
@@ -28,7 +28,7 @@ const AuthProvider = ({ children }: props) => {
         updateUser('')
     }
 
-    const providerValues: authType = {
+    const providerValues: AuthType = {
         username,
         logIn,
         logOut

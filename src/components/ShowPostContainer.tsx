@@ -1,18 +1,15 @@
 import { CSSProperties, useTheme } from "styled-components";
 import { Box } from "src/components/Box";
 import { HeaderContainer } from "./HeaderContainer";
-import Typography from "./Typograph";
-import { postType } from "src/utils/types";
-import { useAuth } from "src/hooks/useAuth";
+import Typography from "src/components/Typograph";
+import { PostType } from "src/utils/types";
 
 type props = {
-    post: postType
+    post: PostType
     style?: CSSProperties
 }
 const ShowPostContainer = ({ post: { title, content, username }, style }: props) => {
     const theme = useTheme()
-    const auth = useAuth()
-    console.log(auth)
 
     return (
         <Box
@@ -38,13 +35,16 @@ const ShowPostContainer = ({ post: { title, content, username }, style }: props)
                     <Typography
                     style={{
                         fontWeight: '400px',
-                        marginTop: theme.spacing.md
                         }}
                     variant="span"
                     >25 minutes ago
                     </Typography>
                 </Box>
-                <Typography variant='h3'>{content}</Typography>
+                <Typography
+                    variant='h2'
+                    style={{marginTop: theme.spacing.md}}
+                    >{content}
+                </Typography>
             </Box>
         </Box>
     )

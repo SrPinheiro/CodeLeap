@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
     * {
         margin: 0;
+  
         padding: 0;
         box-sizing: border-box;
         font-family: Roboto, sans-serif;
@@ -19,7 +20,6 @@ export const GlobalStyle = createGlobalStyle`
         font-size: ${({ theme }) => theme.font.size.lg };
         font-weight: 700;
     }
-    
 
     h2 {
         font-size: ${({ theme }) => theme.font.size.md };
@@ -28,6 +28,7 @@ export const GlobalStyle = createGlobalStyle`
 
     h3 {
         font-size: ${({ theme }) => theme.font.size.sm };
+        font-weight: 400;
     }
 
     p {
