@@ -1,4 +1,4 @@
-import { createContext, JSX, useState } from "react";
+import { createContext, ReactNode, useState } from "react";
 import { getCurrentUser, updateUser } from "src/utils/authHelpers";
 import { authType } from "src/utils/types";
 
@@ -11,7 +11,7 @@ const defaultValues: authType = {
 const AuthContext = createContext(defaultValues)
 
 type props = {
-    children: JSX.Element
+    children: ReactNode
 }
 
 const AuthProvider = ({ children }: props) => {

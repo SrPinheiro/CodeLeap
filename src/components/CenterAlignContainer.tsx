@@ -7,5 +7,5 @@ export const CenterAlignContainer = styled.div`
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
 `

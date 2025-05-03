@@ -13,17 +13,23 @@ const NewPostContainer = () => {
             style={{
                 width: '100%',
                 border: `1px solid ${theme.colors.gray}`,
-                borderRadius: '16px',
-                padding: theme.spacing.md
+                borderRadius: theme.spacing.md,
+                padding: theme.spacing.lg
             }}
         >
             <Typography variant='h1'>What’s on your mind?</Typography>
-            <Typography variant='p' style={{marginTop: theme.spacing.mdx}} >title</Typography>
+            <Typography variant='p' style={{marginTop: theme.spacing.md}} >title</Typography>
             <TextInput placeholder='Hello Word' style={{ width: '100%'}} />
-            <Typography variant='p' style={{marginTop: theme.spacing.mdx}}>Content</Typography>
+            <Typography variant='p' style={{marginTop: theme.spacing.md}}>Content</Typography>
             <TextAreaInput placeholder='Content Here' style={{ maxWidth: '100%', minWidth: '100%'}} rows={4}  />
-            <Box className="df-right">
-                <Button style={{marginTop: '16px'}} type="button" >Create</Button>
+            <Box
+            style={{
+                marginTop: theme.spacing.lg,
+                display: 'flex',
+                justifyContent: 'right',
+                alignItems: 'center',
+            }}>
+                <Button type="button" >Create</Button>
             </Box>
         </Box>
     )

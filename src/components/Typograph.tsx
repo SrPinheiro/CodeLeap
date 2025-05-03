@@ -9,7 +9,12 @@ type props = {
     style?: CSSProperties
 }
 
-const TypographyTag = styled(({tag, children, ...props}) => createElement(tag, props, children))``
+type tagProps = {
+    tag: variantProp,
+    children?: ReactNode
+}
+
+const TypographyTag = styled(({tag, children, ...props}: tagProps) => createElement(tag, props, children))``
 
 const Typography = ({variant = 'p', children, ...props }: props) => {
     return (

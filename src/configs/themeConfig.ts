@@ -6,21 +6,21 @@ export const lightTheme = {
       secondary: '#4D8BF7',
       danger: '#ef4444',
       white: '#fff',
-      gray: '#777777',
+      black: '#000',
+      gray: '#777',
       success: '#28A745'
     },
     spacing: {
       sm: '8px',
       md: '16px',
-      mdx: '24px',
-      lg: '32px',
+      lg: '24px',
     },
     font: {
       family: "'Roboto', sans-serif",
       size: {
-        sm: '14px',
-        md: '16px',
-        lg: '24px',
+        sm: '16px',
+        md: '18px',
+        lg: '22px',
       },
     },
     Breakpoints: {
@@ -33,14 +33,6 @@ export const lightTheme = {
     }
   };
   
-export const darkTheme = {
-  ...lightTheme,
-  colors: {
-    ...lightTheme.colors,
-    background: '#121212',
-    text: '#fff',
-  },
-};
   
 export type Theme = typeof lightTheme;
   
