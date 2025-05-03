@@ -1,9 +1,12 @@
-import useHomePage from "src/hooks/home/useHomePage";
+import { HomePageProvider } from "src/contexts/pages/HomePageContext";
 import HomePageView from "src/view/homePage/HomePageView";
 
 const Home = () => {
-    const props = useHomePage()
-    return <HomePageView {...props} />;
+    return (
+        <HomePageProvider>
+            <HomePageView /> 
+        </HomePageProvider>
+    )
 }
 
 export default Home;

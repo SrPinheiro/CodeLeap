@@ -11,7 +11,7 @@ const defaultNewPost: PostCreateNewPost = {
     content: ''
 }
 
-const useHomePage = () => {
+const useHomePageLogic = () => {
   const auth = useAuth()
     const [newPost, setNewPost] = useState<PostCreateNewPost>(defaultNewPost)
     const [posts, setPosts] = useState<PostType[]>([])
@@ -106,4 +106,4 @@ const useHomePage = () => {
     }
 }
 
-export default useHomePage;
+export default useHomePageLogic;

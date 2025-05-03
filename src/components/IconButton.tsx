@@ -1,5 +1,5 @@
 import { CSSProperties, ReactNode } from "react";
-import { CircleBox } from "src/components/CircularBox";
+import { CircleBox } from "src/components/styleds/CircularBox";
 
 type props = {
     style?: CSSProperties

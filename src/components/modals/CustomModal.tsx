@@ -1,4 +1,4 @@
-import { ModalContainer, Overlay } from "./ModalComponents";
+import { ModalContainer, Overlay } from "../styleds/ModalComponents";
 
 type props  = {
     isOpen: boolean;

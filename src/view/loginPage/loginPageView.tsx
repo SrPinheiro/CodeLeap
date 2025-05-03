@@ -1,9 +1,9 @@
 import { ChangeEventHandler } from "react";
-import { Box } from "src/components/Box";
-import { Button } from "src/components/Button";
-import { CenterAlignContainer } from "src/components/CenterAlignContainer";
-import { FlexContainer } from "src/components/FlexContainer";
-import { TextInput } from "src/components/TextInput";
+import { Box } from "src/components/styleds/Box";
+import { Button } from "src/components/styleds/Button";
+import { CenterAlignContainer } from "src/components/styleds/CenterAlignContainer";
+import { FlexContainer } from "src/components/styleds/FlexContainer";
+import { TextInput } from "src/components/inputs/TextInput";
 import Typography from "src/components/Typograph";
 import { useTheme } from "styled-components";
 

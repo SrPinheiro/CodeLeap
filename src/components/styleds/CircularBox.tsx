@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Box } from "src/components/Box";
+import { Box } from "src/components/styleds/Box";
 
 export const CircleBox = styled(Box)`
   display: inline-flex;

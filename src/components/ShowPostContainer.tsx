@@ -1,5 +1,5 @@
 import { CSSProperties, useTheme } from 'styled-components';
-import { Box } from 'src/components/Box';
+import { Box } from 'src/components/styleds/Box';
 import Typography from 'src/components/Typograph';
 import { PostType } from 'src/utils/types';
 import { getTimeAgoFormated } from 'src/utils/stringHelpers';

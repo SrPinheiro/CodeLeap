@@ -1,52 +1,33 @@
-import { ChangeEventHandler } from 'react';
-import { CenterAlignContainer } from 'src/components/CenterAlignContainer';
-import DeleteModal from 'src/components/DeleteModal';
-import EditPostModal from 'src/components/EditPostModal';
-import { FlexContainer } from 'src/components/FlexContainer';
-import { HeaderContainer } from 'src/components/HeaderContainer';
+import { CenterAlignContainer } from 'src/components/styleds/CenterAlignContainer';
+import DeleteModal from 'src/components/modals/DeleteModal';
+import EditPostModal from 'src/components/modals/EditPostModal';
+import { FlexContainer } from 'src/components/styleds/FlexContainer';
+import { HeaderContainer } from 'src/components/styleds/HeaderContainer';
 import NewPostContainer from 'src/components/NewPostContainer';
 import ShowPostContainer from 'src/components/ShowPostContainer';
 import Typography from 'src/components/Typograph';
-import { PostCreateNewPost } from 'src/utils/requestTypes';
-import { PostType } from 'src/utils/types';
 import { useTheme } from 'styled-components';
+import { useHomePage } from 'src/hooks/pages/home/useHomePage';
 
-type props = {
-  newPost: PostCreateNewPost
-  handleUpdateNewPostTitle: ChangeEventHandler<HTMLInputElement>
-  handleUpdateNewPostContent: ChangeEventHandler<HTMLTextAreaElement>
-  handleSubmitPost: VoidFunction
-  posts: PostType[]
-  createPostDisabled: boolean
-  openDeleteModal: boolean
-  openEditModal: boolean
-  handleDeleteModalOpen: (value: PostType) => void
-  handleOpenEditModal: (value: PostType) => void
-  handleCancelDeleteModal: VoidFunction
-  handleDeletePost: VoidFunction
-  handleCloseEditModal: VoidFunction
-  selectedPost: PostType
-  loadPosts: VoidFunction
-}
-
-const HomePageView = ({
-    newPost,
-    handleUpdateNewPostTitle,
-    handleUpdateNewPostContent,
-    handleSubmitPost,
-    createPostDisabled,
-    posts,
-    openDeleteModal,
-    handleDeleteModalOpen,
-    handleCancelDeleteModal,
-    handleDeletePost,
-    openEditModal,
-    handleCloseEditModal,
-    handleOpenEditModal,
-    selectedPost,
-    loadPosts
-  }: props) => {
+const HomePageView = () => {
         const theme = useTheme()
+        const {
+            newPost,
+            handleUpdateNewPostTitle,
+            handleUpdateNewPostContent,
+            handleSubmitPost,
+            createPostDisabled,
+            posts,
+            openDeleteModal,
+            handleDeleteModalOpen,
+            handleCancelDeleteModal,
+            handleDeletePost,
+            openEditModal,
+            handleCloseEditModal,
+            handleOpenEditModal,
+            selectedPost,
+            loadPosts
+          } = useHomePage()
     
         return (
             <CenterAlignContainer>

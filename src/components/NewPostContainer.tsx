@@ -1,9 +1,9 @@
-import { Box } from "src/components/Box";
+import { Box } from "src/components/styleds/Box";
 import { useTheme } from "styled-components";
 import Typography from "src/components/Typograph";
-import { TextInput } from "src/components/TextInput";
-import { Button } from "src/components/Button";
-import { TextAreaInput } from "src/components/TextAreaInput";
+import { TextInput } from "src/components/inputs/TextInput";
+import { Button } from "src/components/styleds/Button";
+import { TextAreaInput } from "src/components/inputs/TextAreaInput";
 import { ChangeEventHandler } from "react";
 import { PostCreateNewPost } from "src/utils/requestTypes";
 

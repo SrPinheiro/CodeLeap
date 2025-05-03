@@ -1,10 +1,10 @@
 import { TbEdit, TbTrashXFilled } from "react-icons/tb"
-import { Box } from "src/components/Box"
+import { Box } from "src/components/styleds/Box"
 import IconButton from "src/components/IconButton"
 import Typography from "src/components/Typograph"
 import { useTheme } from "styled-components"
-import HeaderContent from "src/components/HeaderContent"
-import { HeaderContainer } from "src/components/HeaderContainer"
+import HeaderContent from "src/components/styleds/HeaderContent"
+import { HeaderContainer } from "src/components/styleds/HeaderContainer"
 import { useAuth } from "src/hooks/useAuth"
 import { PostType } from "src/utils/types"
 

@@ -1,14 +1,12 @@
 import { useTheme } from "styled-components";
-import CustomModal from "src/components/CustomModal";
-import { Box } from "src/components/Box";
+import CustomModal from "src/components/modals/CustomModal";
+import { Box } from "src/components/styleds/Box";
 import Typography from "src/components/Typograph";
-import { TextInput } from "src/components/TextInput";
+import { TextInput } from "src/components/inputs/TextInput";
 import { PostType } from "src/utils/types";
-import { useLayoutEffect, useState } from "react";
-import { TextAreaInput } from "src/components/TextAreaInput";
-import { Button } from "src/components/Button";
-import { toast } from "react-toastify";
-import { patchUpdatePost } from "src/api/apiPost";
+import { TextAreaInput } from "src/components/inputs/TextAreaInput";
+import { Button } from "src/components/styleds/Button";
+import useEditPostModal from "src/hooks/components/useEditPostModal";
 
 type props = {
     selectedPost?: PostType
@@ -17,28 +15,14 @@ type props = {
     open: boolean
 }
 
-const EditPostModal = ({selectedPost, open, onClose, loadPosts}: props) => {
-    const [editPost, setEditPost] = useState({title: '', content: '' })
+const EditPostModal = ({ selectedPost, open, onClose, loadPosts }: props) => {
     const theme = useTheme();
-
-    useLayoutEffect(() => {
-        setEditPost({
-            title: selectedPost?.title ?? '',
-            content: selectedPost?.content ?? ''
-        })
-    }, [selectedPost])
-
-    const handleEditPost = () => {
-        onClose()
-        toast.promise(
-            patchUpdatePost(selectedPost!.id, editPost),
-            {
-                pending: 'Updating post...',
-                success: 'Post updated!',
-                error: 'Oh no! An error occurred while updating post!'
-            }
-        ).then(loadPosts)
-    }
+    const {
+      editPost,
+      handleEditPost,
+      handleChangeTitle,
+      handleChangeContent
+    } = useEditPostModal({selectedPost, onClose, loadPosts})
 
     return (
       <CustomModal isOpen={open} onClose={onClose}>
@@ -56,7 +40,7 @@ const EditPostModal = ({selectedPost, open, onClose, loadPosts}: props) => {
           <TextInput
             placeholder="Hello World"
             style={{ width: '100%' }}
-            onChange={e =>setEditPost(prev => ({...prev, title: e.target.value}))}
+            onChange={handleChangeTitle}
             value={editPost.title}
           />
   
@@ -70,7 +54,7 @@ const EditPostModal = ({selectedPost, open, onClose, loadPosts}: props) => {
               maxWidth: '100%',
               minWidth: '100%',
             }}
-            onChange={e =>setEditPost(prev => ({...prev, content: e.target.value}))}
+            onChange={handleChangeContent}
             value={editPost.content}
           />
   
