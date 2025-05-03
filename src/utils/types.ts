@@ -6,3 +6,9 @@ export type pageType = {
     title: string,
     authGuard: boolean
 }
+
+export type authType = {
+    username: string,
+    logIn: (user: string) => void,
+    logOut: () => void
+}

@@ -1,8 +1,9 @@
+import useLoginPage from "src/hooks/login/useLoginPage";
 import LoginPageView from "src/view/loginPage/loginPageView";
 
 const Login = () => {
-
-    return <LoginPageView />;
+    const params = useLoginPage()
+    return <LoginPageView {...params}/>;
 }
 
 export default Login;
